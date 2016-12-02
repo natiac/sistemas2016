@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+  <div class="box box-success" >
+    <div class="box-header with-border">
+      <h3 class="box-title">Consumo por rango de fechas</h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" data-original-title="Collapse"><i class="fa fa-minus"></i></button>
+      </div>
+    </div>
+    <div class="box-body">
+       <div class="col-xs-3">
+          <label for="user">Usuario:</label>
+          <input type="text" class="form-control" id="user" placeholder="Nombre del usuario">
+      </div>
+      <div class="col-xs-3">
+        <label for="dpconsumo1"> Desde: </label> 
+         <div class="input-group date">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <input type="text" class="form-control pull-right" id="dpconsumo1">
+        </div>      
+      </div>
+      <div class="col-xs-3">
+        <label for="dpconsumo2"> Hasta: </label> 
+         <div class="input-group date">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <input type="text" class="form-control pull-right" id="dpconsumo2">
+        </div>       
+      </div>    
+    </div>
+    <div class="box-footer" align="right" >
+      <a href="/informes"><button type="button" class="btn btn-default">Regresar</button></a>
+      <a href="#"><button type="button" class="btn btn-success">Aceptar</button></a>
+    </div>
+  </div>
+</body>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#dpconsumo1').datepicker({
+    isRTL: false,
+    format: 'dd/mm/yyyy',
+    autoclose:true,
+    language: 'es'
+    });
+    });
+    $(document).ready(function(){
+      $('#dpconsumo2').datepicker({
+    isRTL: false,
+    format: 'dd/mm/yyyy',
+    autoclose:true,
+    language: 'es'
+    });
+    });
+</script>
+
+</html>
+ 

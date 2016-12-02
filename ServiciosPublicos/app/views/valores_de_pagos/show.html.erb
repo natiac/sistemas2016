@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Monto por Forma de Pago:</strong>
+  <%= @valores_de_pago.monto_por_forma_pago %>
+</p>
+
+<%= link_to 'Editar', edit_valores_de_pago_path(@valores_de_pago) %> |
+<%= link_to 'Atras', valores_de_pagos_path %>

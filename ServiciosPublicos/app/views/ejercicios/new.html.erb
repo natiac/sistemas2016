@@ -1,0 +1,19 @@
+<div class="box login-box box-info">
+	<div class="container">
+			<div clas="box-header">
+				<h3  class="box-title", style="padding-top: 10px">Nuevo Ejercicio</h3>
+			</div>
+	</div>	
+	
+	<div class="box-body">
+
+<%= render 'form', ejercicio: @ejercicio %>
+		<div class="col-md-4">
+			<div class="form-group">
+
+<%= link_to 'Atras', ejercicios_path , :class => "btn btn-block btn-default " %>
+			</div>
+		</div>
+	</div>
+	
+</div>

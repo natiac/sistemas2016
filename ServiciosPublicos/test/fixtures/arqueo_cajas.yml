@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2016-10-04 00:00:31
+  monto_en_caja: 1
+  monto_real: 1
+  diferencia: 1
+
+two:
+  fecha: 2016-10-04 00:00:31
+  monto_en_caja: 1
+  monto_real: 1
+  diferencia: 1

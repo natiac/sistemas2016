@@ -1,0 +1,1 @@
+json.array! @valores_de_pagos, partial: 'valores_de_pagos/valores_de_pago', as: :valores_de_pago

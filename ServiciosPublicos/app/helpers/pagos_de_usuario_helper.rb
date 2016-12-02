@@ -1,0 +1,2 @@
+module PagosDeUsuarioHelper
+end

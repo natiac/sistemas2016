@@ -1,0 +1,34 @@
+
+<div class="row encabezado-lista-facturas">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-2">Numero</div>
+  
+  <div class="col-sm-2">Vencimiento</div>
+  <div class="col-sm-2">Total a pagar</div>
+  <div class="col-sm-2">Medidor</div>
+  <div class="col-sm-2">Estado</div>
+</div> 
+
+    <% @facturas.each do |factura| %>
+    <div class="row">
+      <div class="row renglon-facturas">
+
+        <div class="col-sm-1">
+          <%= link_to '<span class="glyphicon glyphicon-eye-open " aria-hidden="true"></span>'.html_safe,
+                      crm_path(factura.id),
+                      class: "btn-xs btn btn-success",
+                      remote: true
+           %>
+        </div>
+        <div class="col-sm-2"><%= factura.numero %></div>
+        
+        <div class="col-sm-2"><%= l(factura.fecha_vencimiento, format: :short) if factura.fecha_vencimiento%></div>
+        <div class="col-sm-2"><%= factura.total_a_pagar %></div>
+        <div class="col-sm-2"><%= factura.obtener_medidor %></div>
+        <div class="col-sm-2"><%= factura.obtener_estado %></div>
+      </div>
+      <div id="show-<%= factura.id %>" class="renglon-detalles-facturas" style: "display: none"></div>
+    </div>
+    <% end %>
+
+<%= will_paginate @facturas, renderer: BootstrapPagination::Rails %>

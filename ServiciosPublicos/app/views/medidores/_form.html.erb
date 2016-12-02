@@ -1,0 +1,32 @@
+<%= simple_form_for(@medidor) do |f| %>
+  <%= f.error_notification %>
+<div  class= "box-body">
+  <div class="form-inputs">
+    <div class="form-group">
+  	 <%= f.input :medidor_nro, :label => "Número de medidor", :placeholder => "número de medidor...",    :class => "form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :persona_id, :label => "Usuario" %><br />
+  	  <%= f.collection_select :persona_id, Persona.order(:nombre), :id, :nombre,  {prompt: "selecione usuario..."}, {class: "form-control", id: "usuarioSelect"}  %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :servicio_id%><br />
+  	  <%= f.collection_select :servicio_id, Servicio.order(:descripcion), :id, :descripcion, {prompt: "selecione el servicio..."}, {class: "form-control", id: "servicioSelect"} %>
+    </div>
+
+    <div class="form-group">
+    <%= f.input :descripcion, :label => "Descripción", :placeholder => "agregue una descripcion del medidor..." %>
+    </div>
+  </div>
+
+</div>
+<div class="box-footer" align="right" >
+  <div class="form-actions">
+        <a href="/medidores"><button type="button" class="btn btn-default">Regresar</button></a>
+        <input class="btn  btn-success" type="submit" value="Guardar">
+      </div>
+    </div>
+
+<% end %>

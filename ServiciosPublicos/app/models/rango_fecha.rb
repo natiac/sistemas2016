@@ -1,0 +1,2 @@
+class RangoFecha < ApplicationRecord
+end

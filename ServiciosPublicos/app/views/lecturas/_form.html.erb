@@ -1,0 +1,54 @@
+<%= simple_form_for(@lectura) do |f| %>
+  <%= f.error_notification %>
+<div  class= "box-body">
+  <div class="form-inputs">
+    <div class="form-group">
+      <%= f.label :medidor_id, :label => "Número de Medidor"%><br />
+      <%= f.collection_select :medidor_id, Medidor.order(:medidor_nro), :id, :medidor_nro, {prompt: "medidor"}, {class: "form-control", id: "medidorSelect"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :fecha_ant, :label => "Fecha anterior"%>
+      <div class="input-group date">
+        <div class="input-group-addon">
+          <i class="fa fa-calendar"></i>
+        </div>
+          <%= f.text_field :fecha_anterior, class: 'form-control', id: 'fecha_anterior'%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :lectura_ant, :label => "Lectura anterior"%>
+      <%= f.text_field :lectura_anterior, class: 'form-control', id: 'lectura_anterior' %>
+    </div> 
+
+    <div class="form-group">
+      <%= f.label :fecha_post, :label => "Fecha posterior"%>
+      <div class="input-group date">
+            <div class="input-group-addon">
+              <i class="fa fa-calendar button" id="bt1" title="Hoy"></i>
+            </div>
+            <%= f.text_field :fecha_actual, class: "form-control", id: 'fecha_actual' %>
+      </div> 
+    </div>
+
+    <div class="form-group">
+      <%= f.input :lectura_actual %>
+    </div>
+
+  </div>
+</div>
+
+<div class="box-footer" align="right" >
+  <div class="form-actions">
+        <a href="/lecturas"><button type="button" class="btn btn-default">Regresar</button></a>
+        <input class="btn  btn-success" type="submit" value="Guardar">
+      </div>
+    </div>
+
+<% end %>
+<script type="text/javascript">
+  $('#bt1').click(function() {
+          $('#fecha_actual').val('<%= Time.now.strftime("%d-%m-%Y") %>');      
+        });
+</script>

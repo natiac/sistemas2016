@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  consumo_minimo: 1
+  costo_unitario: 1
+  unidad_medida: MyString
+
+two:
+  id: 1
+  consumo_minimo: 1
+  costo_unitario: 1
+  unidad_medida: MyString

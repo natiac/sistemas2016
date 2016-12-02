@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @arqueo_caja.fecha %>
+</p>
+
+<p>
+  <strong>Monto en Caja:</strong>
+  <%= @arqueo_caja.monto_en_caja %>
+</p>
+
+<p>
+  <strong>Monto Real:</strong>
+  <%= @arqueo_caja.monto_real %>
+</p>
+
+<p>
+  <strong>Diferencia:</strong>
+  <%= @arqueo_caja.diferencia %>
+</p>
+
+<%= link_to 'Editar', edit_arqueo_caja_path(@arqueo_caja) %> |
+<%= link_to 'Atras', arqueo_cajas_path %>

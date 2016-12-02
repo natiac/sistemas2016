@@ -1,0 +1,71 @@
+
+<p id="notice"></p>
+
+<div class="box box-success">
+  <div class="container">
+    <div clas="box-header">
+        <h3 class="box-title", style="padding-top: 10px" >AUDITORIA</h3>
+    </div>
+  </div>  
+    <div class="box-body">
+                  
+
+<div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+<div class="row">
+<div class="col-sm-12">
+
+<table id="auditorias" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+<thead>
+           <tr role="row">
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 224px;" aria-label="Browser: activate to sort column ascending">
+           Clase
+           </th>
+
+           <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 181px;" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">
+           Autor
+           </th>
+           
+           <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 224px;" aria-label="Browser: activate to sort column ascending">
+           Accion
+           </th>
+           <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 198px;" aria-label="Platform(s): activate to sort column ascending">
+           Fecha y Hora
+           </th>
+          
+          
+           </tr>
+</thead>
+<tbody>
+
+        <% @auditorias.each do |auditoria| %>
+
+         <tr>
+     
+            <td><%= auditoria.item_type %></td>ç
+            <% if auditoria.whodunnit == nil %> 
+            <td> </td>
+            <% else %>
+            <td><%= User.find(auditoria.whodunnit).email %></td>
+            <% end %>
+
+             <td><%= auditoria.event %></td>
+            <td><%= auditoria.created_at.strftime("%d-%m-%Y - %R") %></td>
+             
+        </tr>
+
+        <% end %>
+        </tbody>
+      </table>
+
+
+    </div>
+ 
+  </div>
+
+
+</body>
+</html>
+
+
+
+

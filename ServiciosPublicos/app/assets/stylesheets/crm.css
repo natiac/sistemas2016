@@ -1,0 +1,22 @@
+.crm-cliente{
+	background: #b4b5b7;
+}
+
+.encabezado-lista-facturas{
+    background-color: #c7cdd0;
+}
+
+
+
+.encabezado-lista-facturas div{
+	font-weight: bold;
+}
+
+
+.crm-factura{
+	padding: 4%;
+}
+
+.renglon-facturas{
+	padding-top: 3px;
+}

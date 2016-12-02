@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<div class="box box-success">
+  <div class="container">
+    <div clas="box-header">
+        <h3 class="box-title", style="padding-top: 10px" >Facturas</h3>
+    </div>
+  </div>  
+  <div class="box-body">
+    <div class="col-md-2">
+      <%#= link_to '<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_factura_path,class:"btn btn btn-success btn-sm" ,style: " color:#FFF" %>
+    </div>
+  </div>        
+
+
+<table id="facturas" class="table table-bordered table-striped" role="grid" aria-describedby="example1_info">
+<thead>          
+    <tr role="row">
+            <th class="sorting" tabindex="0" aria-controls="facturas" rowspan="1" colspan="1" style="width: 224px;" aria-label="Browser: activate to sort column ascending">
+           Numero
+           </th>
+
+
+           <th class="sorting" tabindex="0" aria-controls="facturas" rowspan="1" colspan="1" style="width: 181px;" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">
+           Cliente
+           </th>
+
+           <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 181px;" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">
+           Tipo de Servicio
+           </th>
+
+           <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 181px;" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">
+           Nº Medidor
+           </th>
+           
+           <th class="sorting" tabindex="0" aria-controls="facturas" rowspan="1" colspan="1" style="width: 224px;" aria-label="Browser: activate to sort column ascending">
+           Fecha de vencimiento
+           </th>
+           
+           <th class="sorting" tabindex="0" aria-controls="facturas" rowspan="1" colspan="1" style="width: 155px;" aria-label="Engine version: activate to sort column ascending">
+           Total a pagar
+           </th>
+
+           <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 155px;" aria-label="Engine version: activate to sort column ascending">
+           Estado
+           </th>
+           <th>
+           Opciones
+           </th>
+   </tr>
+ </thead>
+
+  <tbody>
+    <% @facturas.each do |factura| %>
+      <tr>
+        <td><%= factura.numero %></td>
+        <td><%= factura.cliente_nombre_completo %></td>
+        <td><%= factura.obtener_servicio %></td>
+        <td><%= factura.obtener_medidor %></td>
+        <td><%= factura.fecha_vencimiento.strftime("%d-%m-%Y" ) %></td>        
+        <td><%= factura.total_a_pagar %></td>    
+        <td><%= factura.obtener_estado %></td>    
+        <td><%= link_to factura , class: "btn btn-info btn-xs" , 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Mostrar" do %><span class="glyphicon glyphicon-eye-open green" style="color:white" ></span><% end %>
+          <%= link_to edit_factura_path(factura) ,class: "btn btn-warning btn-xs" , 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Editar" do%><span class="glyphicon glyphicon-edit " style="color:white"></span><% end %>
+          <%= link_to factura,class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Estas Seguro/a?' } , 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Anular" do %><span class="glyphicon glyphicon-remove" style="color:white"></span><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

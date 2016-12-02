@@ -1,0 +1,28 @@
+<div class="box login-box">
+	<div class= "box-body">
+		<p id="notice"><%= notice %></p>
+
+		<p>
+		  <strong>Consumo minimo:</strong>
+		  <%= @servicio.consumo_minimo %>
+		</p>
+
+		<p>
+		  <strong>Costo unitario:</strong>
+		  <%= @servicio.costo_unitario %>
+		</p>
+
+		<p>
+		  <strong>Unidad medida:</strong>
+		  <%= @servicio.unidad_medida %>
+		</p>
+
+		<p>
+		  <strong>Descripcion:</strong>
+		  <%= @servicio.descripcion %>
+		</p>
+
+		<%= link_to 'Editar', edit_servicio_path(@servicio) %> |
+		<%= link_to 'Atrás', servicios_path %>
+	</div>
+</div>

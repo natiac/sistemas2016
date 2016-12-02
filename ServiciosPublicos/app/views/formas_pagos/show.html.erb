@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Efectivo:</strong>
+  <%= @forma_pago.efectivo %>
+</p>
+
+<%= link_to 'Editar', edit_forma_pago_path(@forma_pago) %> |
+<%= link_to 'Atras', formas_pagos_path %>

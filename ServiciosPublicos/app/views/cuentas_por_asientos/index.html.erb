@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cuentas Por Asientos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Columna</th>
+      <th>Monto</th>
+      <th>Observacion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cuentas_por_asientos.each do |cuentas_por_asiento| %>
+      <tr>
+        <td><%= cuentas_por_asiento.columna %></td>
+        <td><%= cuentas_por_asiento.monto %></td>
+        <td><%= cuentas_por_asiento.observacion %></td>
+        <td><%= link_to 'Show', cuentas_por_asiento %></td>
+        <td><%= link_to 'Edit', edit_cuentas_por_asiento_path(cuentas_por_asiento) %></td>
+        <td><%= link_to 'Destroy', cuentas_por_asiento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cuentas Por Asiento', new_cuentas_por_asiento_path %>

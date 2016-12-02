@@ -1,0 +1,1 @@
+json.array! @movimiento_de_cajas_detalles, partial: 'movimiento_de_cajas_detalles/movimiento_de_cajas_detalle', as: :movimiento_de_cajas_detalle

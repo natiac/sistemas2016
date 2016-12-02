@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Columna:</strong>
+  <%= @cuentas_por_asiento.columna %>
+</p>
+
+<p>
+  <strong>Monto:</strong>
+  <%= @cuentas_por_asiento.monto %>
+</p>
+
+<p>
+  <strong>Observacion:</strong>
+  <%= @cuentas_por_asiento.observacion %>
+</p>
+
+<%= link_to 'Edit', edit_cuentas_por_asiento_path(@cuentas_por_asiento) %> |
+<%= link_to 'Back', cuentas_por_asientos_path %>

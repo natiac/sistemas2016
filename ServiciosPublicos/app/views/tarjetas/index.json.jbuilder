@@ -1,0 +1,1 @@
+json.array! @tarjetas, partial: 'tarjetas/tarjeta', as: :tarjeta

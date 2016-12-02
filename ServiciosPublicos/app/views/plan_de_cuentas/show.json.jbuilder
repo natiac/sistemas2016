@@ -1,0 +1,1 @@
+json.partial! "plan_de_cuentas/plan_de_cuenta", plan_de_cuenta: @plan_de_cuenta

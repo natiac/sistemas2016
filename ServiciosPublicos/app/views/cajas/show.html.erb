@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<div class="login-box">
+	<div class="box box-info">
+	<div class="box-body">
+		<p>
+  			<strong>Numero Caja:</strong>
+  			<%= @caja.numero_caja %>
+		</p>
+
+		<p>
+  			<strong>Estado:</strong>
+  			<%= @caja.estado %>
+		</p>
+	<div class="form-group">
+			<div class="col-md-4">
+				<%= link_to 'Atras', cajas_path, :class => "btn btn-default"  %>
+			</div>
+			<div class="col-md-4">
+				<%= link_to 'Editar', edit_caja_path(@caja),:class => "btn btn-info" %> 
+			</div>
+	</div>
+	</div>	
+</div>
+</div>

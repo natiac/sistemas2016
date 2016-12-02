@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+<div class="box box-success">
+  <div class="container">
+    <div clas="box-header">
+        <h3 class="box-title", style="padding-top: 10px" >Cuentas</h3>
+         <div class="col-md-2">
+      <%= link_to 'Nueva Cuenta', new_cuenta_path , :class=> "btn btn-block btn-success" , style:"color:#fff" %>
+    </div>   
+    </div>
+  </div>  
+              
+                      
+<div class="box-body">
+<div id="cuentas_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+<div class="row">
+<div class="col-sm-12">
+
+<table id="cuentas" class="table table-bordered table-striped dataTable">
+<thead>
+           <tr role="row">
+            <th class="sorting" tabindex="0" aria-controls="cuentas" rowspan="1" colspan="1" style="width: 224px;" aria-label="Browser: activate to sort column ascending">
+           Clase Padre
+           </th>
+
+
+           <th class="sorting_asc" tabindex="0" aria-controls="cuentas" rowspan="1" colspan="1" style="width: 181px;" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">
+           Nombre
+           </th>
+           
+           <th class="sorting" tabindex="0" aria-controls="cuentas" rowspan="1" colspan="1" style="width: 224px;" aria-label="Browser: activate to sort column ascending">
+           Tipo
+           </th>
+           <th class="sorting" tabindex="0" aria-controls="cuentas" rowspan="1" colspan="1" style="width: 198px;" aria-label="Platform(s): activate to sort column ascending">
+           Codigo
+           </th>
+           <th class="sorting" tabindex="0" aria-controls="cuentas" rowspan="1" colspan="1" style="width: 155px;" aria-label="Engine version: activate to sort column ascending">
+           Imputable
+           </th>
+           <th class="sorting" tabindex="0" aria-controls="cuentas" rowspan="1" colspan="1" style="width: 110px;" aria-label="CSS grade: activate to sort column ascending">
+           Opciones
+           </th>
+           </tr>
+              </thead>
+  <tbody>
+    <% @cuentas.each do |cuenta| %>
+      <tr >
+        <td ><%= cuenta.clase_padre %></td>
+        <td><%= cuenta.nombre %></td>
+        <td><%= cuenta.tipo %></td>
+        <td><%= cuenta.codigo %></td>
+        <td><%= cuenta.imputable %></td>
+        <td><%= link_to cuenta , class: "btn btn-info btn-xs" , 'data-toggle'=>"tooltip" ,'data-placement'=>"top" , title:"Mostrar" do %><span class="glyphicon glyphicon-eye-open green" style="color:blue" ></span><% end %>
+        <%= link_to edit_cuenta_path(cuenta)  ,class: "btn btn-warning btn-xs" , 'data-toggle'=>"tooltip" ,'data-placement'=>"top" , title:"Editar" do%><span class="glyphicon glyphicon-edit "></span><% end %>
+        <%= link_to cuenta,class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Estas Seguro/a?' } , 'data-toggle'=>"tooltip" ,'data-placement'=>"top" , title:"Eliminar" do %><span class="glyphicon glyphicon-trash red" ></span><% end %></td>
+       
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+           
+              

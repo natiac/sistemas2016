@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tipos de Persona</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tpersonas.each do |tpersona| %>
+      <tr>
+        <td><%= tpersona.tipo %></td>
+        <td><%= link_to 'Mostrar', tpersona %></td>
+        <td><%= link_to 'Editar', edit_tpersona_path(tpersona) %></td>
+        <td><%= link_to 'Borrar', tpersona, method: :delete, data: { confirm: 'Estas Seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Tipo', new_tpersona_path %>

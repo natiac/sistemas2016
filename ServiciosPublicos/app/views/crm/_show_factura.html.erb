@@ -1,0 +1,107 @@
+
+<p id="notice"><%= notice %></p>
+<section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-credit-card"></i> Factura
+            
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+      <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+          
+          <address>
+            <strong>Servicios Publicos SA.</strong><br>
+            Av. Irrazabal esq. Tomas R. Pereira<br>
+            Encarnacion, Paraguay<br>
+            Telefono: (071)202882<br>
+          </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+          
+          <address>
+            <b>Cliente: </b><%=@factura.cliente_nombre_completo %><br>
+            <b>Tipo de servicio: </b><%=@factura.obtener_servicio%><br>
+            <b>Numero de medidor: </b><%=@factura.obtener_medidor%><br>
+            
+            
+          </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+         
+          <b>Factura numero:</b> <%=@factura.numero%><br>
+          <b>Fecha emision:</b> <%=@factura.fecha_expedicion%><br>
+          <b>Fecha vencimineto:</b> <%=@factura.fecha_vencimiento%><br>
+          
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <h2>Detalles de facturacion</h2>
+ 
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>iva 10%</th>
+              <th>monto</th>
+              
+            </tr>
+            </thead>
+                  <% if @factura.facturas_detalles.any? %>
+                
+                  <% @factura.facturas_detalles.each do |concept| %>
+            <tbody>
+            <tr>
+              <td><%= concept.concepto %></td>
+              <td><%= concept.IVA %></td>
+              <td><%= concept.monto %></td>
+              </tr>
+                  <% end %>
+                  <% else %>
+                   <p>no hay conceptos</p>
+                  <% end %>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+        <!-- accepted payments column -->
+        <div class="col-xs-6">
+          <p class="lead"></p>
+          
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-6">
+
+          <div class="table-responsive">
+            <table class="table">
+              <tbody><tr>
+                <th style="width:50%">Total iva 10%:</th>
+                <td> <%= @factura.iva %></td>
+              </tr>
+              <tr>
+                <th>TOTAL</th>
+                <td><%= @factura.total_a_pagar %></td>
+              </tr>
+              
+            </tbody></table>
+          </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->

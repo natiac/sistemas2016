@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-xs-12">
+     <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Cheques</h3>
+        </div>
+        <div class="box-body">
+          <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+<div class="row">
+  <div class="col-sm-6"></div>
+  <div class="col-sm-6"></div></div>
+<div class="row">
+<div class="col-sm-12">
+<table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+  <thead>
+  <tr role="row">
+      <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Titular: activate to sort column descending"> Titular </th>
+      <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Banco: activate to sort column descending">Banco</th>
+      <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Numero Cheque: activate to sort column descending">Numero Cheque</th>
+      <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Fecha de Disponibilidad: activate to sort column descending">Fecha de Disponibilidad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cheques.each do |cheque| %>
+      <tr>
+        <td><%= cheque.titular %></td>
+        <td><%= cheque.banco %></td>
+        <td><%= cheque.numero_cheque %></td>
+        <td><%= cheque.fecha_disponibilidad %></td>
+        <td>
+          <%= link_to edit_cheque_path(cheque), class: 'btn btn-warning btn-outline btn-circle', title: 'Editar', 'remote' => true, 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+          <% end %>
+          <%= link_to cheque, method: :delete, data: { confirm: 'Va eliminarlo, esta seguro?' }, class: 'btn btn-danger btn-outline btn-circle', title: 'Borrar', 'data-toggle' => 'tooltip', 'data-placement' => 'right'  do %>
+          <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<%= link_to 'Nuevo Cheque', new_cheque_path %>
+
+              
+                

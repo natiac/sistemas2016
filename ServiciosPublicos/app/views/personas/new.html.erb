@@ -1,0 +1,16 @@
+<div class="login-box">
+  <div class="box box-info">
+    <div class="box-header">
+      <h1 class="box-title">Nueva Persona</h1>
+    </div>
+    <div class="box-body">
+      <%= render 'form', persona: @persona %>
+      
+      <div class="form-group">
+        <div class="col-md-4">
+          <%= link_to 'Volver', personas_path, :class => "btn btn-block btn-default" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

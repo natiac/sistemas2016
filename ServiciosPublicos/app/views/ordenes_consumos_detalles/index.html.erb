@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ordenes de Consumos Detalles</h1>
+<div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+<div class="row">
+<div class="col-sm-12">
+
+<table id="ordenes_consumos_detalles" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+<thead>
+           <tr role="row">
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 224px;" aria-label="Browser: activate to sort column ascending">
+           Monto
+           </th>
+
+           <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 181px;" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">
+           Iva
+           </th>
+
+           <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 181px;" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">
+           Opciones
+           </th>
+
+           </tr>
+</thead>
+
+  <tbody>
+    <% @ordenes_consumos_detalles.each do |ordenes_consumos_detalle| %>
+      <tr>
+        <td><%= ordenes_consumos_detalle.monto %></td>
+        <td><%= ordenes_consumos_detalle.IVA %></td>
+        <td><%= link_to 'Mostrar', ordenes_consumos_detalle %>
+        <%= link_to 'Editar', edit_ordenes_consumos_detalle_path(ordenes_consumos_detalle) %>
+        <%= link_to 'Eliminar', ordenes_consumos_detalle, method: :delete, data: { confirm: 'Esta seguro?' } %>
+        </td>
+       </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Nueva Orden Consumo Detalle', new_ordenes_consumos_detalle_path %>

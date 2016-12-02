@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Número de Verificacion:</strong>
+  <%= @tarjeta.nro_verificacion %>
+</p>
+
+<p>
+  <strong>Titular:</strong>
+  <%= @tarjeta.titular %>
+</p>
+
+<p>
+  <strong>Categoria de Tarjeta:</strong>
+  <%= @tarjeta.categoria_tarjeta %>
+</p>
+
+<p>
+  <strong>Tipo de Tarjeta:</strong>
+  <%= @tarjeta.tipo_tarjeta %>
+</p>
+
+<%= link_to 'Editar', edit_tarjeta_path(@tarjeta) %> |
+<%= link_to 'Atras', tarjetas_path %>

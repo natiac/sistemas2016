@@ -1,0 +1,1 @@
+json.array! @asientos, partial: 'asientos/asiento', as: :asiento

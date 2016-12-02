@@ -1,0 +1,1 @@
+json.partial! "arqueo_cajas/arqueo_caja", arqueo_caja: @arqueo_caja

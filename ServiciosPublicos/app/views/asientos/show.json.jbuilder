@@ -1,0 +1,1 @@
+json.partial! "asientos/asiento", asiento: @asiento

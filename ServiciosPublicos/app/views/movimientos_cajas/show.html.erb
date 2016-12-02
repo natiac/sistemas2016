@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @movimiento_caja.tipo %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @movimiento_caja.descripcion %>
+</p>
+
+<p>
+  <strong>Monto Total:</strong>
+  <%= @movimiento_caja.monto_total %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @movimiento_caja.fecha %>
+</p>
+
+<%= link_to 'Editar', edit_movimiento_caja_path(@movimiento_caja) %> |
+<%= link_to 'Atras', movimientos_cajas_path %>
+

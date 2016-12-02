@@ -1,0 +1,1 @@
+json.partial! "tipos_personas/tipo_persona", tipo_persona: @tipo_persona

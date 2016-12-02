@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2016-11-11 16:45:44
+  hora: 2016-11-11 16:45:44
+  accion: MyString
+  descripcion_de_suceso: MyString
+  personas: one
+
+two:
+  fecha: 2016-11-11 16:45:44
+  hora: 2016-11-11 16:45:44
+  accion: MyString
+  descripcion_de_suceso: MyString
+  personas: two

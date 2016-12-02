@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Medidores</h1>
+  <div class= "box">
+    <div class="box-header">
+      <h3 class="box-title">Listando medidores</h3>
+    </div>
+    <div class="container">
+    <%= link_to 'Agregar Medidor', new_medidor_path, :class=> "btn btn-success" ,style: " color:#FFF" %>
+  </div>
+    <div class="box-body">
+      <table id="medidores" class="table table-bordered table-striped datatable">
+        <thead>
+          <tr>
+            <th>Medidor Nro.</th>
+            <th>Cliente</th>
+            <th>Servicio</th>
+            <th data-searchable="false">Descripcion</th>
+            <th data-sortable="false">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @medidores.each do |medidor| %>
+            <tr>
+              <td><%= medidor.medidor_nro %></td>
+              <td><%= medidor.persona.nombre %></td>
+              <td><%= medidor.servicio.descripcion %></td>
+              <td><%= medidor.descripcion %></td>                       
+              <td><%= link_to medidor, class: "btn btn-info btn-xs", 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Mostrar" do %><span class="fa fa-fw fa-eye green" style="color:white"></span><% end %>
+              <%= link_to edit_medidor_path(medidor), class: "btn btn-warning btn-xs", 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Editar" do %><span class="fa fa-fw fa-pencil skyblue" style="color:white"></span><% end %>
+              <%= link_to medidor, method: :delete, data: { confirm: 'Estas Seguro/a?' }, class: "btn btn-danger btn-xs", 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Eliminar" do %><span class="fa fa-fw fa-trash-o red" style="color:white"></span><% end %>
+            </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

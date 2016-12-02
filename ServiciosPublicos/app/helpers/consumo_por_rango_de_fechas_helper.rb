@@ -1,0 +1,2 @@
+module ConsumoPorRangoDeFechasHelper
+end

@@ -1,0 +1,1 @@
+json.partial! "movimientos_cajas/movimiento_caja", movimiento_caja: @movimiento_caja

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Monto:</strong>
+  <%= @facturas_detalle.monto %>
+</p>
+
+<p>
+  <strong>Iva:</strong>
+  <%= @facturas_detalle.IVA %>
+</p>
+
+<%= link_to 'Edit', edit_facturas_detalle_path(@facturas_detalle) %> |
+<%= link_to 'Back', facturas_detalles_path %>

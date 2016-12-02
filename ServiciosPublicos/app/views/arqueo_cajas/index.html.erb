@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Arqueo de Caja</h1>
+
+<table id="table" class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Monto en Caja</th>
+      <th>Monto Real</th>
+      <th>Diferencia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @arqueo_cajas.each do |arqueo_caja| %>
+      <tr>
+        <td><%= arqueo_caja.fecha %></td>
+        <td><%= arqueo_caja.monto_en_caja %></td>
+        <td><%= arqueo_caja.monto_real %></td>
+        <td><%= arqueo_caja.diferencia %></td>
+        <td>
+          <%= link_to edit_arqueo_caja_path(arqueo_caja), class: 'btn btn-warning btn-outline btn-circle', title: 'Editar', 'remote' => true, 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+          <% end %>
+          <%= link_to arqueo_caja, method: :delete, data: { confirm: 'Va eliminarlo, esta seguro?' }, class: 'btn btn-danger btn-outline btn-circle', title: 'Borrar', 'data-toggle' => 'tooltip', 'data-placement' => 'right'  do %>
+          <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Arqueo de Caja', new_arqueo_caja_path %>

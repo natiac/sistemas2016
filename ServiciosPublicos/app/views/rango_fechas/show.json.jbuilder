@@ -1,0 +1,1 @@
+json.partial! "rango_fechas/rango_fecha", rango_fecha: @rango_fecha

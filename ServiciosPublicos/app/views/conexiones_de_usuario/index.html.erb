@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+</head>
+<body>
+  <div class="box box-success" >
+    <div class="box-header with-border">
+      <h3 class="box-title">Conexiones de usuarios</h3>
+    </div>
+    <div class="box-body">  
+      <table id="conexiones_de_usuarios" class="table table-bordered table-striped datatable">
+        <thead>
+          <tr >
+            <th>
+              Nombre
+            </th>
+            <th>
+              Nro de Medidor
+            </th>
+            <th data-searchable="false" >
+              Nro de Cedula
+            </th>
+            </th>
+            <th data-searchable="false">
+              Direccion
+            </th>
+            <th data-searchable="false">
+              Telefono
+            </th>
+            <th data-searchable="false">
+              Servicio
+            </th>           
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @conexiones.each do |conexion| %>
+            <tr>
+              <td><%= conexion.persona.nombre %></td>
+              <td><%= conexion.medidor_nro %></td>
+              <td><%= conexion.persona.ci_numero %></td>
+              <td><%= conexion.persona.direccion %></td>
+              <td><%= conexion.persona.telefono %></td>
+              <td><%= conexion.servicio.descripcion %></td>             
+            </tr>
+          <% end %>
+        </tbody>
+
+      </table>
+    </div>
+    <div class="box-footer" align="right" >
+      <a href="/informes"><button type="button" class="btn btn-default">Regresar</button></a>
+      <button id="printConexiones" type="button" class="btn btn-success">Imprimir</button>
+    
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript">
+  function printData()
+  {
+    var divToPrint=document.getElementById("conexiones_de_usuarios");
+    newWin= window.open("");
+    newWin.document.write(divToPrint.outerHTML);
+    newWin.print();
+    newWin.close();
+  }
+
+  $('#printConexiones').on('click',function(){
+    printData();
+  })
+</script>
+
+</html>

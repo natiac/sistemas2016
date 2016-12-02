@@ -1,0 +1,130 @@
+<p id="notice"><%= notice %></p>
+<div class="box box-primary">
+<section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-globe"></i> Orden de consumo
+            
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+      <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+          
+          <address>
+            <strong>Servicios Publicos SA.</strong><br>
+            Av. Irrazabal esq. Tomas R. Pereira<br>
+            Encarnacion, Paraguay<br>
+            Telefono: (071)202882<br>
+          </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+          
+          <address>
+            <b>Cliente: </b><%=@ordenes_de_consumo.cliente_nombre_completo %><br>
+            <b>Tipo de servicio: </b><%=@ordenes_de_consumo.obtener_servicio%><br>
+            <b>Numero de medidor: </b><%=@ordenes_de_consumo.obtener_medidor%><br>
+            
+            
+          </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+         
+          
+          <b>Fecha emision:</b> <%=@ordenes_de_consumo.fecha_expedicion.strftime("%d-%m-%Y")%><br>
+          <b>Fecha vencimineto:</b> <%=@ordenes_de_consumo.fecha_vencimiento.strftime("%d-%m-%Y")%><br>
+          
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <h2>Detalles de facturacion</h2>
+ 
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>iva 10%</th>
+              <th>monto</th>
+              
+            </tr>
+            </thead>
+                  <% if @ordenes_de_consumo.ordenes_consumos_detalles.any? %>
+                
+                  <% @ordenes_de_consumo.ordenes_consumos_detalles.each do |concept| %>
+            <tbody>
+            <tr>
+              <td><%= concept.concepto %></td>
+              <td><%= concept.IVA %></td>
+              <td><%= concept.monto %></td>
+              </tr>
+                  <% end %>
+                  <% else %>
+                   <p>no hay conceptos</p>
+                  <% end %>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+        <!-- accepted payments column -->
+        <div class="col-xs-6">
+          <p class="lead"></p>
+          
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-6">
+
+          <div class="table-responsive">
+            <table class="table">
+              <tbody><tr>
+                <th style="width:50%">Total iva 10%:</th>
+                <td> <%= @ordenes_de_consumo.IVA %></td>
+              </tr>
+              <tr>
+                <th>TOTAL</th>
+                <td><%= @ordenes_de_consumo.total_a_pagar %></td>
+              </tr>
+              
+            </tbody></table>
+          </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- this row will not appear when printing -->
+      <div class="row no-print">
+        <div class="col-xs-12">
+          
+          <button id="btn-print" type="button" class="btn btn-default" ><span class="glyphicon glyphicon-print"></span> Imprimir </button>
+          
+          <%= link_to 'Generar Factura', facturas_path({id: @ordenes_de_consumo.id}),:class=> "btn btn-success", method: :post, style: " color:#FFF" %>
+          <%= link_to 'Editar', edit_ordenes_de_consumo_path(@ordenes_de_consumo),:class=> "btn btn-success pull-right",style: " color:#FFF" %>
+          <%= link_to 'Atras', ordenes_de_consumos_path,:class=> "btn btn-default pull-right" %>
+          
+        </div>
+      </div>
+    </section>
+</div> 
+
+<script>
+    // al hacer click, te aparece ventana imprimir
+    $('#btn-print').click(function(){
+        window.print();
+        
+    });
+</script>   

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Monto:</strong>
+  <%= @ordenes_consumos_detalle.monto %>
+</p>
+
+<p>
+  <strong>Iva:</strong>
+  <%= @ordenes_consumos_detalle.IVA %>
+</p>
+
+<%= link_to 'Edit', edit_ordenes_consumos_detalle_path(@ordenes_consumos_detalle) %> |
+<%= link_to 'Back', ordenes_consumos_detalles_path %>

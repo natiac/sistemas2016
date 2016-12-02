@@ -1,0 +1,2 @@
+class CuentasPorPlan < ApplicationRecord
+end

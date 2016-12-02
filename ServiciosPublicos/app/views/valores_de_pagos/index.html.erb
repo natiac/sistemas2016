@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Valores De Pago</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Monto por Forma pago</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @valores_de_pagos.each do |valores_de_pago| %>
+      <tr>
+        <td><%= valores_de_pago.monto_por_forma_pago %></td>
+        <td><%= link_to 'Mostrar', valores_de_pago %></td>
+        <td><%= link_to 'Editar', edit_valores_de_pago_path(valores_de_pago) %></td>
+        <td><%= link_to 'Borrar', valores_de_pago, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevos Valores De Pago', new_valores_de_pago_path %>

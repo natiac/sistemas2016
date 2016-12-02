@@ -1,0 +1,164 @@
+<%= nested_form_for(@ordenes_de_consumo, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% unless @ordenes_de_consumo.errors.empty? %>
+    <div class="alert alert-danger">
+      <% @ordenes_de_consumo.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="box box-primary">   
+    
+    <div class="box-body">
+      <!-- info row -->
+      <div class="row invoice-info">
+
+
+
+        <div class="col-sm-3 invoice-col">         
+          <address>
+            <h4><strong>Servicios Publicos SA.</strong><br>
+            Av. Irrazabal esq. Tomas R. Pereira<br>
+            Encarnacion, Paraguay<br>
+            Telefono: (071)202882<br>
+          </address></h4>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-5 invoice-col">
+          <div class="row">
+            <div class="col-sm-12">
+              <%= f.label 'Cliente', class: "col-sm-3 control-label" %>              
+              <%= f.collection_select :persona_id , Persona.order(:nombre), :id, :nombre, {include_blank: true}, {class:"col-sm-6"} %>
+
+            </div>
+            <div class="col-sm-12">
+              <%= f.label 'Servicio', class: "col-sm-3 control-label" %>
+              <%= f.collection_select :servicio_id , Servicio.order(:descripcion), :id, :descripcion, {include_blank: true}, {class:"col-sm-6"} %>                            
+                 
+
+            </div>
+            <div class="col-sm-12">
+              <%= f.label 'Medidor', class: "col-sm-3 control-label" %>
+              <%= f.collection_select :medidor_id , Medidor.order(:medidor_nro), :id, :medidor_nro, {include_blank: true}, {class:"col-sm-6"} %>
+            </div>                                              
+          </div>                              
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+          <div class="row">
+
+              <div class="input-group date">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar button" id="bt1" title="Fecha Expedicion"></i>
+          </div>
+          <%= f.text_field :fecha_expedicion, class: "form-control fecha", label: false, :placeholder =>"Fecha de Expedicion", id: 'fecha_expedicion' %>
+        </div> 
+           <div class="input-group date">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar button" id="bt1" title="Fecha Vencimiento"></i>
+          </div>
+          <%= f.text_field :fecha_vencimiento, class: "form-control fecha", label: false, :placeholder =>"Fecha de Vencimiento", id: 'fecha_vencimiento' %>
+          <%#= f.input :fecha_vencimiento, as: :date %>  
+          </div> 
+
+          </div>              
+        </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+        
+ <h2>Detalles de facturacion</h2>
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Monto</th>
+              
+            </tr>
+            </thead>
+            <tbody>
+        
+              <%= f.fields_for :ordenes_consumos_detalles  ,:wrapper => false do |item| %>
+              <tr class="fields">
+
+                  <td scope="row"><%= item.collection_select :concepto_id , Concepto.order(:nombre), :id, :nombre, {include_blank: true}, {class:"form-control select-conceptos"} %></td>          
+
+                  <td> <%= item.text_field :monto, class:"form-control text-field-monto" %></td>
+                  <td><%= item.link_to_remove "",id: "borrar", :class => "btn btn btn-danger btn-sm glyphicon glyphicon-trash ", title: 'Eliminar', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' %></td>
+              </tr>
+              
+              <%end%>
+              
+              <tr>
+                <td><%= f.link_to_add "", :ordenes_consumos_detalles , :class => "btn btn btn-success btn-sm glyphicon glyphicon-plus boton-agregar", title: 'Agregar item', 'data-toggle' => 'tooltip', 'data-placement' => 'right'%></td>
+              </tr>
+
+          </tbody>
+          </table>
+          
+          
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <div class="row" align="right">
+        <!-- /.col -->
+        <div class="col-md-6 col-md-offset-6">
+
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>Total iva:</th>
+                  <td><%= f.text_field :IVA, class:"form-control" %></td>
+                </tr>
+                <tr>
+                  <th>TOTAL A PAGAR: </th>
+                  <td><%= f.text_field :total_a_pagar, class:"form-control" %></td>
+                </tr>            
+    
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+      <!-- /.row -->
+
+ <input class="btn btn-success pull-right" type="submit" value="Guardar">
+
+  <%= link_to '<i class="glyphicon glyphicon-arrow-left"></i> Atras'.html_safe, ordenes_de_consumos_path, class: "btn btn-default pull-right" %>
+  </div>
+</div>  
+<% end %> 
+</div>  
+
+<script type="text/javascript">
+  $(".select-conceptos").on("change", function(){
+    //console.log("select cambiado");
+    var a = 0;
+    var conceptoId = $(this).val();
+      var elemento =  $(this).parents(".fields")
+      $.ajax({
+        url: "/conceptos/" + conceptoId,
+        method: "get",
+        dataType: "json",
+        success: function(data){
+            a = data;
+            console.log(data.monto);
+            $(elemento).find(".text-field-monto").val(data.monto);
+        }
+    })
+  });
+  $(".fecha").datepicker();
+
+</script>
+
+
+

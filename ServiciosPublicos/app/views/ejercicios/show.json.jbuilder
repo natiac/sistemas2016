@@ -1,0 +1,1 @@
+json.partial! "ejercicios/ejercicio", ejercicio: @ejercicio

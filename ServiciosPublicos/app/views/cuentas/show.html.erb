@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @cuenta.nombre %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @cuenta.tipo %>
+</p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @cuenta.codigo %>
+</p>
+
+<p>
+  <strong>Imputable:</strong>
+  <%= @cuenta.imputable %>
+</p>
+
+<%= link_to 'Editar', edit_cuenta_path(@cuenta) , :class => "btn  btn-success  " , style:"color:#fff" %> |
+<%= link_to 'Atras', plan_de_cuentas_path, :class => "btn  btn-default  " %>

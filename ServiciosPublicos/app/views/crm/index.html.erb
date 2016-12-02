@@ -1,0 +1,27 @@
+<h3>Datos del Cliente</h3>
+
+
+
+<div class="row">
+	<div class="col-md-9">
+	
+		<div class="box box-success">
+		 	<div class="container">
+		    	<div clas="box-header">
+		        	<h3 class="box-title", style="padding-top: 10px" >Facturas</h3>
+		    	</div>
+		  	</div>  
+			<div class="box-body">
+
+				  <div class="crm-factura">
+				  	<%= render "list", facturas: @facturas %>
+				  </div>
+
+				  
+				</div>
+		</div>
+	</div>
+	<div class="col-md-3 ">
+		<%= render "datos_cliente" %>
+	</div>
+</div>

@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<div class="box box-success">
+  <div class="container">
+    <div clas="box-header">
+        <h3 class="box-title", style="padding-top: 10px" >Ejercicios</h3>
+        <div class="col-md-2">
+<%= link_to 'Nuevo Ejercicio', new_ejercicio_path ,:class=> "btn btn-block btn-success padding-top:10px"  , style:"color:#fff" %>
+  </div> 
+    </div>
+  </div>
+
+ <div class="box-body">
+<div id="ejercicios_wrapper">
+<div class="row">
+<div class="col-sm-12">
+
+<table  id="ejercicios" class="table table-bordered table-striped dataTable">
+  <thead>
+     <tr role="row">
+           <th class="sorting">
+           Año
+           </th>
+           <th>
+           Estado
+           </th>
+           <th class="col-md-3">
+           Opciones
+           </th>
+           </tr>
+  </thead>
+
+  <tbody>
+    <% @ejercicios.each do |ejercicio| %>
+      <tr >
+        <td><%= ejercicio.anho %></td>
+        <td><%= ejercicio.estado %></td>
+        <td><%= link_to "apertura_cajas/new" , class: "btn btn-default btn-xs" , 'data-toggle'=>"tooltip" ,'data-placement'=>"top" , title:"Abrir-todavia no funciona" do%><span class="glyphicon glyphicon-zoom-in" style="color:green"></span><% end %>
+
+        <%= link_to ejercicio , class: "btn btn-info btn-xs" , 'data-toggle'=>"tooltip" ,'data-placement'=>"top" , title:"Ver" do  %><span class="glyphicon glyphicon-eye-open green" style="color:blue"></span><% end %>
+<%= link_to edit_ejercicio_path(ejercicio) ,class: "btn btn-warning btn-xs" , 'data-toggle'=>"tooltip" ,'data-placement'=>"top" , title:"Editar" do %><span class="glyphicon glyphicon-edit "></span><% end %>
+<%= link_to  ejercicio,class: "btn btn-danger btn-xs" , 'data-toggle'=>"tooltip" ,'data-placement'=>"top" , title:"Eliminar", method: :delete, data: { confirm: 'Estas Seguro/a?'} do %><span class="glyphicon glyphicon-trash red" style="color:red"></span><% end %>
+        </td>
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+

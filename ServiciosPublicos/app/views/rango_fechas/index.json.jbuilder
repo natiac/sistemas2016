@@ -1,0 +1,1 @@
+json.array! @rango_fechas, partial: 'rango_fechas/rango_fecha', as: :rango_fecha

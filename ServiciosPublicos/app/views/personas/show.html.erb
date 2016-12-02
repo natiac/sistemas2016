@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+<div class="login-box">
+  <div class="box box-info">
+    <div class="box-body">
+      <p>
+        <strong>Nacionalidad:</strong>
+        <%= @persona.nacionalidad %>
+      </p>
+      <p>
+        <strong>Nombre:</strong>
+        <%= @persona.nombre %>
+      </p>
+
+      <p>
+        <strong>Direccion:</strong>
+        <%= @persona.direccion %>
+      </p>
+
+      <p>
+        <strong>Ruc:</strong>
+        <%= @persona.ruc %>
+      </p>
+
+      <p>
+        <strong>Telefono:</strong>
+        <%= @persona.telefono %>
+      </p>
+
+      <p>
+        <strong>Ci numero:</strong>
+        <%= @persona.ci_numero %>
+      </p>
+
+      <p>
+        <strong>Correo:</strong>
+        <%= @persona.correo %>
+      </p>
+
+      <div class="form-group">
+        <div class="col-md-4">
+          <%= link_to 'Editar', edit_persona_path(@persona),:class => "btn btn-block btn-info" %>
+        </div>
+        <div class="col-md-4">
+          <%= link_to 'Volver', personas_path, :class => "btn btn-block btn-default" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

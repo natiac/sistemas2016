@@ -1,0 +1,24 @@
+<%= simple_form_for(@ejercicio) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+		<div class="form-group">
+    		<%= f.input :anho , :label => "Año" %>
+		</div>
+		<div class="form-group" , style="margin-top:20px">
+  
+    <%= f.input :estado %>
+
+		</div>
+  </div>
+ <br>
+  <div clas="form-group">
+  
+     	 <div class="col-md-4">
+  			<div class="form-actions">
+    			<%= f.submit "Crear" ,  class: "btn btn-block  btn-success "  %>
+  			</div>
+		</div>
+ 
+  </div>
+<% end %>

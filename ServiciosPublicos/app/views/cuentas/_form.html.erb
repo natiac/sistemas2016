@@ -1,0 +1,33 @@
+<%= simple_form_for(@cuenta) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="form-group">
+
+       <%= f.input :nombre %>
+
+    </div >
+    <div class="form-group">
+      <%= f.input :tipo %>
+    </div>
+
+      
+<div class="form-group">
+      <%= f.input :codigo %>
+    </div>
+<div class="form-group">
+      <%= f.input :imputable %>
+</div >
+  </div>
+  <br>
+  <div clas="form-group">
+  
+      <div class="col-md-2">
+        <div class="form-actions">
+          <%= f.submit "Crear" , class: "btn btn-block  btn-success "  , style:"color:#fff" %>
+        </div>
+      </div>
+  </div>
+<% end %>
+ 
+   

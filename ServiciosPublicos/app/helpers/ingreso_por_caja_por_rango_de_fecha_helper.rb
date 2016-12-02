@@ -1,0 +1,2 @@
+module IngresoPorCajaPorRangoDeFechaHelper
+end

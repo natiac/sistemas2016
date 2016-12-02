@@ -1,0 +1,34 @@
+<div class="box login-box">
+  <div class= "box-body">
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Medidor número:</strong>
+      <%= @lectura.medidor.medidor_nro %>
+    </p>
+
+    <p>
+      <strong>Fecha anterior:</strong>
+      <%= @lectura.fecha_anterior %>
+    </p>
+
+    <p>
+      <strong>Lectura anterior:</strong>
+      <%= @lectura.lectura_anterior %>
+    </p>
+
+    <p>
+      <strong>Fecha posterior:</strong>
+      <%= @lectura.fecha_actual %>
+    </p>
+
+    <p>
+      <strong>Lectura posterior:</strong>
+      <%= @lectura.lectura_actual %>
+    </p>
+
+    <%= link_to 'Editar', edit_lectura_path(@lectura) %> |
+    <%= link_to 'Atrás', lecturas_path %>
+
+  </div>
+</div>

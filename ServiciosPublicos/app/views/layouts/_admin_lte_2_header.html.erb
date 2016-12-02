@@ -1,0 +1,27 @@
+<!-- Main Header -->
+<header class="main-header">
+
+  <!-- Logo -->
+  <a href="/" class="logo">
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    <span class="logo-mini"><b>SP</b></span>
+    <!-- logo for regular state and mobile devices -->
+    <span class="logo-lg"><b>Servicios Publicos</b></span>
+  </a>
+
+  <!-- Header Navbar -->
+  <nav class="navbar navbar-static-top" role="navigation">
+    <!-- Sidebar toggle button-->
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <span class="sr-only">Toggle navigation</span>
+    </a>
+    <!-- Navbar Right Menu -->
+    <p class="navbar-text pull-right">
+    <% if user_signed_in? %>
+      Bienvenido <strong><%= current_user.email %></strong>
+      <%= link_to "Salir", destroy_user_session_path, method: :delete,style:"color:#fff", :class => 'navbar-link'  %>
+        <% else %>
+          <%= link_to "Ingresar", new_user_session_path, :class => 'navbar-link'  %>
+    <% end %>
+  </nav>
+</header>

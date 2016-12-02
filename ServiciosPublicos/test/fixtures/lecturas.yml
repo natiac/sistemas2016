@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lectura_anterior: 1
+  lectura_actual: 1
+  fecha_anterior: 2016-10-04
+  fecha_actual: 2016-10-04
+
+two:
+  lectura_anterior: 1
+  lectura_actual: 1
+  fecha_anterior: 2016-10-04
+  fecha_actual: 2016-10-04

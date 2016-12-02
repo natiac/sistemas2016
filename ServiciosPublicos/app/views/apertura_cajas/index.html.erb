@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-xs-12">
+     <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Apertura de Caja</h3>
+        </div>
+        <div class="col-md-2">
+          <%= link_to 'Nueva Apertura', new_apertura_caja_path , :class=> "btn btn-success", style: " color:#FFF" %>
+        </div> 
+        <div class="box-body">
+          <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+<div class="row">
+  <div class="col-sm-6"></div>
+  <div class="col-sm-6"></div></div>
+<div class="row">
+  <div class="col-sm-12">
+<table id="apertura_cajas" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+  <thead>
+    <tr role="row">
+      <th>Monto Apertura</th>
+      <th>Hora Apertura</th>
+      <th>Caja Número</th>
+      <th>Cajero</th>
+      <th data-sortable="false">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apertura_cajas.each do |apertura_caja| %>
+      <tr>
+        <td><%= apertura_caja.monto_apertura %></td>
+        <td><%= apertura_caja.hora_apertura %></td>
+        <td><%= apertura_caja.caja.numero_caja %></td>
+        <td><%= apertura_caja.persona.nombre %></td>
+        <td>
+          <%= link_to apertura_caja, class: "btn btn-info btn-xs", 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Mostrar" do %><span class="fa fa-fw fa-eye green" style="color:white"></span><% end %>
+          <%= link_to edit_apertura_caja_path(apertura_caja), class: "btn btn-warning btn-xs", 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Editar"  do%><span class="fa fa-fw fa-pencil skyblue" style="color:white"></span>
+          <% end %>
+          <%= link_to apertura_caja, method: :delete, data: { confirm: 'Estas Seguro/a?' }, class: "btn btn-danger btn-xs", 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Eliminar" do %><span class="fa fa-fw fa-trash-o red" style="color:white"></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </div>
+  </div>

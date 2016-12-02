@@ -1,0 +1,2 @@
+class Asiento < ApplicationRecord
+end

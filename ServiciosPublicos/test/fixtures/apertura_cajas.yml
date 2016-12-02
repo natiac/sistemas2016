@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  monto_apertura: 1
+  hora_apertura: 2016-10-03 22:27:48
+  hora_cierre: 2016-10-03 22:27:48
+  monto_cierre: 1
+
+two:
+  monto_apertura: 1
+  hora_apertura: 2016-10-03 22:27:48
+  hora_cierre: 2016-10-03 22:27:48
+  monto_cierre: 1

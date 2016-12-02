@@ -1,0 +1,2 @@
+module BoletasReimpresasHelper
+end

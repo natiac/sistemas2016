@@ -1,0 +1,1 @@
+json.array! @apertura_cajas, partial: 'apertura_cajas/apertura_caja', as: :apertura_caja

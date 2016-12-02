@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+<div class="login-box">
+<div class="box box-info">
+<div class="box box-header">
+	<h1 class="box-title">Asiento Creado</h1>
+		</div>
+<div class="box-body">	
+
+<p>
+  <strong>Numero:</strong>
+  <%= @asiento.numero %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @asiento.fecha %>
+</p>
+
+<p>
+  <strong>Debe:</strong>
+  <%= @asiento.debe %>
+</p>
+
+<p>
+  <strong>Haber:</strong>
+  <%= @asiento.haber %>
+</p>
+<div class="box-footer">
+<%= link_to 'Editar', edit_asiento_path(@asiento) %> |
+<%= link_to 'Atras', asientos_path %>
+</div>
+</div>
+</div>
+</div>

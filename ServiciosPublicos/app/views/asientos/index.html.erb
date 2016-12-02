@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+<div class="box">
+<div class="box-header">
+<h1 class="box-title">Asientos</h1>
+</div>
+<div class="box-header">
+<%= link_to 'Crear nuevo asiento', new_asiento_path, :class=>"btn btn-success" %>
+</div>
+<div class="box-body">
+<div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+
+<div class="row"><div class="col-sm-12">
+<table  id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+  <thead>
+    <tr  role="row">
+      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 224px;" aria-label="Browser: activate to sort column ascending">Numero</th>
+      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 198px;" aria-label="Platform(s): activate to sort column ascending">Fecha</th>
+      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 155px;" aria-label="Engine version: activate to sort column ascending" >Debe</th>
+      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 155px;" aria-label="Engine version: activate to sort column ascending" >Haber</th>
+     
+      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="3" style="width: 155px;" aria-label="Engine version: activate to sort column ascending" >Opciones</th>
+     
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @asientos.each do |asiento| %>
+      <tr  role="row" class="odd">
+        <td class="sorting_1" ><%= asiento.numero %></td>
+        <td><%= asiento.fecha %></td>
+        <td><%= asiento.debe %></td>
+        <td><%= asiento.haber %></td>
+        <td><%= link_to 'Mostrar', asiento %></td>
+        <td><%= link_to 'Editar', edit_asiento_path(asiento) %></td>
+        <td><%= link_to 'Eliminar', asiento, method: :delete, data: { confirm: 'Estas seguro/a ? ' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+</div>
+
+</div>
+</div>
+
+
+

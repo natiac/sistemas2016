@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @plan_de_cuenta.version %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @plan_de_cuenta.estado %>
+</p>
+
+<%= link_to 'Edit', edit_plan_de_cuenta_path(@plan_de_cuenta) %> |
+<%= link_to 'Back', plan_de_cuentas_path %>

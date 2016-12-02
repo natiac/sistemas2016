@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-xs-12">
+     <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Tarjetas</h3>
+        </div>
+        <div class="box-body">
+          <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+<div class="row">
+  <div class="col-sm-6"></div>
+  <div class="col-sm-6"></div></div>
+<div class="row">
+<div class="col-sm-12">
+<table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+  <thead>
+    <tr role="row">
+      <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Número de Verificacion: activate to sort column descending">Número de Verificacion</th>
+      <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Titular: activate to sort column descending">Titular</th>
+      <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Categoria Tarjeta: activate to sort column descending">Categoria Tarjeta</th>
+      <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Tipo de Tarjeta: activate to sort column descending">Tipo de Tarjeta</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tarjetas.each do |tarjeta| %>
+      <tr>
+        <td><%= tarjeta.nro_verificacion %></td>
+        <td><%= tarjeta.titular %></td>
+        <td><%= tarjeta.categoria_tarjeta %></td>
+        <td><%= tarjeta.tipo_tarjeta %></td>
+         <td>
+          <%= link_to edit_tarjeta_path(tarjeta), class: 'btn btn-warning btn-outline btn-circle', title: 'Editar', 'remote' => true, 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+          <% end %>
+          <%= link_to tarjeta, method: :delete, data: { confirm: 'Va eliminarlo, esta seguro?' }, class: 'btn btn-danger btn-outline btn-circle', title: 'Borrar', 'data-toggle' => 'tooltip', 'data-placement' => 'right'  do %>
+          <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div
+<br>
+
+<%= link_to 'Nueva Tarjeta', new_tarjeta_path %>

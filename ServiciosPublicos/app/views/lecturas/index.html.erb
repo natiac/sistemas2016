@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+
+<h1>Lecturas</h1>
+<div class= "box">
+<form method= "post" class ="form-inline"> 
+  <div class="container">
+    <%= simple_form_for(@lectura) do |f| %>
+      <%= f.error_notification %>
+      <br>
+      <%= f.collection_select :medidor_id, Medidor.order(:medidor_nro), :id, :medidor_nro, {prompt: "medidor"}, {class: "form-control", id: "medidorSelect"} %>
+      
+      <div class="input-group date">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+        <%= f.text_field :fecha_anterior, class: 'form-control', label: false, :placeholder =>"fecha anterior...", id: 'fecha_anterior'%>
+      </div>
+
+      <%= f.input :lectura_anterior, label: false, :placeholder =>"Lectura anterior..."%>
+
+      <div class="input-group date">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar button" id="bt1" title="Hoy"></i>
+          </div>
+          <%= f.text_field :fecha_actual, class: "form-control", label: false, :placeholder =>"fecha de registro...", id: 'fecha_actual' %>
+        </div> 
+
+      <%= f.input :lectura_actual, label: false, :placeholder =>"lectura..."%>
+      
+      <button type="submit" class="btn btn-success" id= "btn-add">Agregar</button>
+
+      </div>
+      <% end %>
+</form> 
+<br>
+  <div class="box-body">
+    <table id="lecturas" class="table table-bordered table-hover datatable display">
+      <thead>
+        <tr>
+          <th>Medidor Nro.</th>
+          <th>Fecha Anterior</th>
+          <th>Lectura Anterior</th>
+          <th>Fecha Posterior</th>
+          <th>Lectura Posterior</th>
+          <th data-sortable="false">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @lecturas.each do |lectura| %>
+          <tr>
+            <td><%= lectura.medidor.medidor_nro %></td>
+            <td><%= lectura.fecha_anterior %></td>
+            <td><%= lectura.lectura_anterior %></td>
+            <td><%= lectura.fecha_actual %></td>
+            <td><%= lectura.lectura_actual %></td> 
+            <td>
+              <%= link_to lectura, class: "btn btn-info btn-xs", 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Mostrar" do %><span class="fa fa-fw fa-eye green" style="color:white"></span><% end %>
+              <%= link_to edit_lectura_path(lectura), class: "btn btn-warning btn-xs", 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Editar" do %><span class="fa fa-fw fa-pencil skyblue" style="color:white"></span><% end %>
+              <%= link_to lectura, method: :delete, data: { confirm: 'Estas Seguro/a?' }, class: "btn btn-danger btn-xs", 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Eliminar" do %><span class="fa fa-fw fa-trash-o red" style="color:white"></span><% end %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script type="text/javascript">
+  $('#bt1').click(function() {
+          $('#fecha_actual').val('<%= Time.now.strftime("%d-%m-%Y") %>');      
+        });
+</script>

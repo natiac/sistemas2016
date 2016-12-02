@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Monto Apertura:</strong>
+  <%= @apertura_caja.monto_apertura %>
+</p>
+
+<p>
+  <strong>Hora Apertura:</strong>
+  <%= @apertura_caja.hora_apertura %>
+</p>
+
+<p>
+  <strong>Hora Cierre:</strong>
+  <%= @apertura_caja.hora_cierre %>
+</p>
+
+<p>
+  <strong>Monto Cierre:</strong>
+  <%= @apertura_caja.monto_cierre %>
+</p>
+
+<%= link_to 'Editar', edit_apertura_caja_path(@apertura_caja) %> |
+<%= link_to 'Atras', cajas_path %>

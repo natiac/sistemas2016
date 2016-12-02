@@ -1,0 +1,1 @@
+json.partial! "ordenes_de_consumos/ordenes_de_consumo", ordenes_de_consumo: @ordenes_de_consumo

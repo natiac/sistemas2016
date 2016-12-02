@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">    
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <title></title>
+</head>
+
+<body>
+  <div class="box box-success"  >
+    <div class="box-header with-border">
+      <h3 class="box-title">Usuarios Morosos</h3>
+    </div>
+    <div class="box-body">  
+      <table id="usuariosmorosos" class="table table-bordered table-striped datatable">
+        <thead>
+          <tr >
+            <th >
+              Nombre
+            </th>
+            <th >
+              Medidor
+            </th>
+            <th data-searchable="false" >
+              Deuda
+            </th>
+            <th data-searchable="false" >
+              Nro de Cedula
+            </th>
+            <th data-searchable="false" >
+              Direccion
+            </th>
+            <th data-searchable="false">
+              Telefono
+            </th>
+            <th data-searchable="false">
+              Correo
+            </th>
+            <th data-searchable="false">
+              Estado de Factura
+            </th>
+            
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @facturasmorosas.each do |factura| %>
+            <tr>
+              <%if factura.obtener_estado == 'Vencido' %>
+              <td><%= factura.cliente_nombre_completo %></td>
+              <td><%= factura.obtener_medidor %></td>
+              <td><%= factura.total_a_pagar %></td>
+              <td><%= factura.persona.ci_numero %></td>
+              <td><%= factura.persona.direccion %></td>
+              <td><%= factura.persona.telefono %></td>
+              <td><%= factura.persona.correo %></td>
+              <td><%= factura.obtener_estado %></td>
+             <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+
+      </table>
+    </div>
+    <div class="box-footer" align="right" >
+      <a href="/informes"><button type="button" class="btn btn-default">Regresar</button></a>
+      <button id="printmora" type="button" class="btn btn-success">Imprimir</button>
+    
+    </div>
+
+</body>
+ <script type="text/javascript">
+        function printData()
+{
+   var divToPrint=document.getElementById("usuariosmorosos");
+   newWin= window.open("");
+   newWin.document.write(divToPrint.outerHTML);
+   newWin.print();
+   newWin.close();
+}
+
+$('#printmora').on('click',function(){
+printData();
+})
+</script>
+
+</html>

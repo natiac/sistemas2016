@@ -1,0 +1,92 @@
+<p id="notice"><%= notice %></p>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+
+
+<div class="box box-success">
+  <div class="container">
+    <div clas="box-header">
+        <h3 class="box-title", style="padding-top: 10px" >Ordenes de Consumos</h3>
+    </div>
+  </div>  
+  <div class="box-body">
+    <div class="col-md-2">
+      <%= link_to '<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_ordenes_de_consumo_path,class:"btn btn btn-success btn-sm" ,style: " color:#FFF" %>
+    </div>
+    <div class="pull-right">
+      <%= link_to 'Generar Facturas', generar_todas_las_facturas_path(),:class=> "btn btn-success pull-right", method: :get, style: " color:#FFF" %>
+       <%#= link_to 'Generar Facturas', facturas_path({id: @ordenes_de_consumo.id}), method: :post %>
+    </div>
+  </div>        
+
+
+<table id="ordenes_de_consumos" class="table table-bordered table-striped" role="grid" aria-describedby="example1_inf">
+<thead>    
+           <tr role="row">
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 224px;" aria-label="Browser: activate to sort column ascending">
+           Cliente
+           </th>
+
+
+           <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 181px;" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">
+           Tipo de Servicio
+           </th>
+
+           <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 181px;" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">
+           Nº Medidor
+           </th>
+           
+           <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 224px;" aria-label="Browser: activate to sort column ascending">
+           Fecha de vencimiento
+           </th>
+
+           <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 198px;" aria-label="Platform(s): activate to sort column ascending">
+           Total a pagar
+           </th>
+
+           <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 155px;" aria-label="Engine version: activate to sort column ascending">
+           Estado
+           </th>
+
+           <th>
+           Opciones
+           </th>
+    </tr>
+   </thead>
+
+  <tbody>
+    <% @ordenes_de_consumos.each do |ordenes_de_consumo| %>
+      <tr>
+        
+        <td><%= ordenes_de_consumo.cliente_nombre_completo %></td>
+        <td><%= ordenes_de_consumo.obtener_servicio %></td>
+        <td><%= ordenes_de_consumo.obtener_medidor %></td>
+        <td><%= ordenes_de_consumo.fecha_vencimiento.strftime("%d-%m-%Y" )%></td>
+        <td><%= ordenes_de_consumo.total_a_pagar %></td> 
+        <td><%= ordenes_de_consumo.obtener_estado %></td>       
+        <td><%= link_to ordenes_de_consumo , class: "btn btn-info btn-xs" , 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Mostrar" do %><span class="glyphicon glyphicon-eye-open green" style="color:white" ></span><% end %>
+        <%= link_to edit_ordenes_de_consumo_path(ordenes_de_consumo) ,class: "btn btn-warning btn-xs" , 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Editar" do%><span class="glyphicon glyphicon-edit " style="color:white"></span><% end %>
+        
+        <%= link_to ordenes_de_consumo,class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Estas Seguro/a?' } , 'data-toggle'=>"tooltip" ,'data-placement'=>"right" , title:"Eliminar" do %><span class="glyphicon glyphicon-trash red" style="color:white"></span><% end %>
+        </td>
+
+       </tr>
+
+    <% end %>
+  </tbody>
+</table>
+<script type="text/javascript">
+  $('#bt1').click(function() {
+          $('#fecha_expedicion').val('<%= Time.now.strftime("%d-%m-%Y") %>');      
+        });
+</script>
+
+<script type="text/javascript">
+  $('#bt1').click(function() {
+          $('#fecha_vencimiento').val('<%= Time.now.strftime("%d-%m-%Y") %>');      
+        });
+</script>

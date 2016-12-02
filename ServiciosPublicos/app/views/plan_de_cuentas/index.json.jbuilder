@@ -1,0 +1,1 @@
+json.array! @plan_de_cuentas, partial: 'plan_de_cuentas/plan_de_cuenta', as: :plan_de_cuenta

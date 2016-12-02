@@ -1,0 +1,1 @@
+json.partial! "apertura_cajas/apertura_caja", apertura_caja: @apertura_caja

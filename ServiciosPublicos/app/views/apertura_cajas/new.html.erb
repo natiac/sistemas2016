@@ -1,0 +1,23 @@
+<%= simple_form_for(@apertura_caja) do |f| %>
+<div class="login-box">
+	<div class="box box-info">
+		<div class="box-header">
+			<h1 class="box-title" >Apertura de Caja</h1>
+		</div>
+	<div class="box-body">
+		<%= render 'form', apertura_caja: @apertura_caja %>
+			<div clas="form-group">
+      			<div class="col-md-4">
+       				 <div class="form-actions">
+          				<% if controller.action_name == 'new' or controller.action_name == 'index' %>
+           				 <%= f.submit "Abrir", class: "btn btn-success",onclick:"window.location.href('movimientos_cajas/new');"%>
+         			    <% elsif controller.action_name == 'edit' %>
+            			<%= f.submit "Actualizar", class: 'btn btn-primary'%>
+          				<% end %>
+       				</div>
+     			</div>
+  			</div>
+	</div>
+	</div>
+</div>
+<% end %>

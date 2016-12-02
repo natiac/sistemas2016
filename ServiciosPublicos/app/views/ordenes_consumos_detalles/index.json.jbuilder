@@ -1,0 +1,1 @@
+json.array! @ordenes_consumos_detalles, partial: 'ordenes_consumos_detalles/ordenes_consumos_detalle', as: :ordenes_consumos_detalle

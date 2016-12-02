@@ -1,0 +1,16 @@
+<%= simple_form_for(@caja) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <div class="form-group">
+        <%= f.input :numero_caja, :label => "Caja Número" %>
+    </div>
+  </div>
+<br>
+  <div clas="form-group">
+      <div class="col-md-4">
+        <div class="form-actions">
+          <%= link_to 'Atras', cajas_path, :class => "btn btn-block btn-default" %>
+        </div>
+      </div>
+  </div>
+<% end %>

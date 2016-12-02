@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nro_verificacion: 1
+  titular: MyString
+  categoria_tarjeta: MyString
+  tipo_tarjeta: MyString
+
+two:
+  nro_verificacion: 1
+  titular: MyString
+  categoria_tarjeta: MyString
+  tipo_tarjeta: MyString

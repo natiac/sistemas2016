@@ -1,0 +1,19 @@
+<div class="box box-info">
+	<div class="container">
+		<div clas="box-header">
+			<h1 class="box-title", style="padding-top: 10px">Editar Movimiento</h1>
+		</div>
+	</div>
+<div class="box-body">
+	<%= render 'form', movimiento_caja: @movimiento_caja %>
+		<div class="form-group">
+			<div class="col-md-2">
+				<%= link_to 'Mostrar', @movimiento_caja , :class => "btn btn-block btn-info"%> |
+			</div>
+		    <div class="col-md-2">
+				<%= link_to 'Atras', movimientos_cajas_path , :class => "btn btn-block btn-default"%>
+			</div>
+		</div>	
+</div>
+	
+</div>

@@ -1,0 +1,63 @@
+<%= nested_form_for [@movimiento_caja.apertura_caja, @movimiento_caja], validate: true do |f| %>
+  <div class="row">
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+      <div class="field">
+        <strong>Caja Número:</strong>
+        <%= f.text_field :caja_id , class: 'form-control' %>
+      </div>
+    </div>
+   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+      <div class="nested-field">
+        <%= f.label :fecha %><br>
+            <%= 
+              Time.now.strftime("%d-%m-%Y")     
+            %>    
+            <%=
+              Time.now.strftime("%R")   
+            %>
+      </div> 
+    </div>
+     
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+      <div class="nested-field">
+        <%= f.label :persona_id, 'Cajero' %><br>
+        <%= current_user.email %> 
+      </div>
+    </div>
+ </div>
+  <div class="row">
+    <div class="col-xs-12 table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Factura Número</th>
+            <th>Monto Parcial</th>
+            <th>Monto Total</th>
+          </tr>
+        </thead>
+        <tbody>
+        <%= f.fields_for :movimiento_de_cajas_detalles, :wrapper => false do |factura| %>
+         <tr class="fields">
+             <td><%= factura.collection_select  :factura_id, Factura.order(:numero), :id, :numero, {include_blank: true}, {class:"form-control"} %></td>
+              <td><%= factura.text_field :monto_parcial, class: 'form-control'%></td>
+              <td><%= f.text_field :monto_total, class: 'form-control' %></td>
+              <td><%= factura.link_to_remove "",id: "borrar", :class => "btn glyphicon glyphicon-trash ", title: 'Eliminar detalle', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth' %></td>
+        </tr>
+        <% end %>
+           <tr>
+              <td><%= f.link_to_add "Agregar Detalle", :movimiento_de_cajas_detalles, class: "btn btn-primary"%></td>
+           </tr> 
+        </tbody>
+      </table>
+  </div>
+  </div>
+  <br>
+    <div clas="form-group">
+      <div class="col-md-2">
+        <div class="form-actions">
+          <%= f.submit "Guardar" , class: "btn btn-success"  %>
+        </div>
+      </div>
+    </div>
+<% end %>
+

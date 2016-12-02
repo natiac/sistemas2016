@@ -1,0 +1,1 @@
+json.array! @cuentas_por_asientos, partial: 'cuentas_por_asientos/cuentas_por_asiento', as: :cuentas_por_asiento

@@ -1,0 +1,30 @@
+<div class="box login-box">
+	<div class= "box-body">
+		<p id="notice"><%= notice %></p>
+
+		<p>
+		  <strong>Medidor Nro.:</strong>
+		  <%= @medidor.medidor_nro %>
+		</p>
+
+		<p>
+		  <strong>Cliente:</strong>
+		  <%= @medidor.persona.nombre %>
+		</p>
+
+		<p>
+		  <strong>Servicio:</strong>
+		  <%= @medidor.servicio.descripcion %>
+		</p>
+
+
+		<p>
+		  <strong>Descripcion:</strong>
+		  <%= @medidor.descripcion %>
+		</p>
+
+		<%= link_to 'Editar', edit_medidor_path(@medidor) %> |
+		<%= link_to 'Atrás', medidores_path %>
+
+	</div>
+</div>

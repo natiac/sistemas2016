@@ -1,0 +1,39 @@
+<%= simple_form_for(@apertura_caja) do |f| %>
+<% if @apertura_caja.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@apertura_caja.errors.count, "error") %> prohibited this apertura_caja from being saved:</h2>
+      <ul>
+      <% @apertura_caja.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="box-body">
+  <div class="form-inputs">
+    <div class="field">
+      <%= f.label :persona_id, label: "Cajero" %>
+      <%= f.collection_select :persona_id , Persona.order(:nombre), :id, :nombre, {prompt: "Seleccione un Cajero"}, {class:"form-control"} %>
+    </div>  
+    <div class="field">
+        <%= f.label :caja_id, label: "Caja Número" %><br>
+        <%= f.collection_select :caja_id, Caja.where(:estado => 'Cerrado'), :id, :numero_caja, {prompt: "Seleccione una caja"}, {class:"form-control"}%> 
+    </div>
+     <div class="field">
+        <%= f.label :hora_apertura %><br>
+           <%= Time.zone.now %>
+      </div> 
+
+     <div class="field">
+        <%= f.label :monto_apertura  %>
+        <%= f.text_field :monto_apertura, class: 'form-control', value: @apertura_caja.monto_apertura %>
+     </div>      
+  </div>
+</div>
+
+  <div clas="form-group">
+      <div class="col-md-4">
+        <%= link_to 'Atras', cajas_path, :class => "btn btn-default" %>
+     </div>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+<%= simple_form_for(@caja) do |f| %>
+<div class="login-box">
+    <div class="box box-info">
+		<div clas="box-header">
+			<h1 class="box-title", style="padding-top: 10px">Editar Caja</h1>
+ 		</div>
+	<div class="box-body">
+	<%= render 'form', caja: @caja %>
+		<div class="form-group">
+			<div class="col-md-4">
+				<%= f.submit "Guardar" , class: "btn btn-block  btn-success "  %>
+			</div>
+			<div class="col-md-4">
+				<%= link_to 'Mostrar', @caja, :class => "btn btn-block btn-info" %> 
+			</div>
+			
+	    </div>
+    </div>
+</div>
+</div>
+<% end %>

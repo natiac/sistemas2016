@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  monto_por_forma_pago: 
+
+two:
+  monto_por_forma_pago: 

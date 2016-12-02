@@ -1,0 +1,1 @@
+json.array! @cuentas_por_planes, partial: 'cuentas_por_planes/cuentas_por_plan', as: :cuentas_por_plan
